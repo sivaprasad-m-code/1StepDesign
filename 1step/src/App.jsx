@@ -15,6 +15,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import ProviderForm from'./ProviderForm';
 import Therapist from './Therapist';
+import Message from './Message';
 
 
 function Sidebar() {
@@ -31,13 +32,20 @@ function Sidebar() {
             `gap-2 flex cursor-pointer ${isActive ? 'text-main border-r-2 border-main' : 'hover:text-main'}`
           }
         >
+          
           <IoPersonSharp className="mt-1" />
           Profile
         </NavLink>
-        <div className="flex gap-2 cursor-pointer hover:text-main">
+        <NavLink
+          to="/msg"
+          className={({ isActive }) =>
+            `gap-2 flex cursor-pointer ${isActive ? 'text-main border-r-2 border-main' : 'hover:text-main'}`
+          }
+        >
           <RiMessage2Fill className="mt-1" />
-          <p>Message</p>
-        </div>
+          Message
+        </NavLink>
+        
         <NavLink
           to="/bookings"
           className={({ isActive }) =>
@@ -100,6 +108,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/provider" element={<ProviderForm />} />
             <Route path="/therapist" element={<Therapist />} />
+            <Route path="/msg" element={<Message />} />
           </Routes>
         </div>
       </div>
